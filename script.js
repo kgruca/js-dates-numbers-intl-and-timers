@@ -262,3 +262,24 @@ btnSort.addEventListener('click', function(e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+
+// NEW SECTION
+// all numbers are represented as floating point numbers in JS
+// (no matter if they were written as integers)
+
+console.log(23 === 23.0);
+// logs true
+
+// all numbers in JS are in binary, which makes for some really difficult
+// computations. This is why sometimes you get very weird results:
+console.log(0.1 + 0.2);
+// should be 0.3 but logs 0.30000000000000004
+
+// this system is also used by languages such as php and ruby
+// therefore, cannot do precise (scientific, etc) calculations in languages
+// such as these. Another example:
+console.log(0.1 + 0.2 === 0.3);
+// logs false 
+// this is a quirk of JS that we just need to accept
+
