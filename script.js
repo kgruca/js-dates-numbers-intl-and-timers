@@ -234,7 +234,7 @@ btnClose.addEventListener('click', function(e) {
 
   // check that username and pin match the current user + pin
   if (inputCloseUsername.value === currentAccount.username &&
-     +inputClosePin.value) === currentAccount.pin {
+     +inputClosePin.value === currentAccount.pin) {
 
     // find the index of the current user in the accounts array
     const index = accounts.findIndex(acc => acc.username === 
@@ -288,3 +288,33 @@ console.log(Number('23'));
 // logs 23
 console.log(+'23');
 // logs 23
+
+// Parsing
+console.log(Number.parseInt('30px', 10));
+// logs 30
+
+console.log(Number.parseInt('e23', 10));
+// logs NaN because it wasn't able to get rid of the "e"
+
+// useful in situations such as when we get a value + unit from CSS and 
+// need to get rid of the unit
+
+// the '10' parameter lets the function know that the value passed in is 
+// base-10, which helps avoid bugs
+// if using binary, then you pass in '2' instead, etc
+
+// there is also parseFloat:
+console.log(Number.parseFloat('2.5rem'));
+// logs 2.5
+
+// if use parseInt on the value above, then:
+console.log(Number.parseInt('2.5rem'));
+// logs 2
+
+// white space is ignored
+
+// parseInt() and parseFloat() are actually global functions, which means
+// they can be passed in without the Number keyword - modern JS usage, however,
+// encourages to add Number
+// Number provides a 'namespace' for these functions
+
