@@ -318,3 +318,12 @@ console.log(Number.parseInt('2.5rem'));
 // encourages to add Number
 // Number provides a 'namespace' for these functions
 
+// isNaN() can be used to check if something is a NaN or not
+console.log(Number.isNaN(20));
+// logs false
+console.log(Number.isNaN('20'));
+// logs false, because '20' is a string, not a NaN
+
+// this will work more if you're trying to convert something to a number
+console.log(Number.isNaN(+'e20'));
+// logs true
