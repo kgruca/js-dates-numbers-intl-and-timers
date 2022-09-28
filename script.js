@@ -343,4 +343,16 @@ console.log(Number.isFinite(20));
 console.log(Number.isFinite('20'));
 // logs false
 
-// isFinite() is better to use that isNaN()
+// isFinite() is better to use than isNaN()
+// isFinite() is the best way to check if something is a number
+
+// Number.isNaN() should be used to check if a number is NaN
+// Number.isFinite() should be used to check if a floating point is a num
+// Number.isInteger() should be used to check if an num is an int
+
+console.log(Number.isInteger(23));
+// logs true
+console.log(Number.isInteger(23.0));
+// logs true
+console.log(Number.isInteger(23 / 0));
+// logs false
