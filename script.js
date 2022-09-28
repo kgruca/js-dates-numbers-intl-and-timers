@@ -327,3 +327,20 @@ console.log(Number.isNaN('20'));
 // this will work more if you're trying to convert something to a number
 console.log(Number.isNaN(+'e20'));
 // logs true
+
+// what about for something like 30 / 0?
+// 30 / 0 would be a special value - "Infinity":
+console.log(30 / 0);
+// logs Infinity
+console.log(Number.isNaN(30 / 0));
+// logs false
+// so for this situation, there's a better method:
+console.log(Number.isFinite(30 / 0));
+// logs false 
+console.log(Number.isFinite(20));
+// logs true
+// but can also be used to check if something is a number or not:
+console.log(Number.isFinite('20'));
+// logs false
+
+// isFinite() is better to use that isNaN()
