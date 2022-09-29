@@ -292,9 +292,36 @@ console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
 // better way to generate random numbers:
 const randomInt = (min, max) => 
-  Math.trunc(Math.random() * (max - min) + 1) + min;
+  Math.floor(Math.random() * (max - min) + 1) + min;
 
 console.log(randomInt(10, 20));
+
+// rounding integers
+console.log(Math.trunc(23.3));
+// logs 23
+console.log(Math.round(23.3));
+// logs 23
+console.log(Math.round(23.9));
+// logs 24
+
+console.log(Math.ceil(23.3));
+console.log(Math.ceil(23.9));
+// both log 24
+
+console.log(Math.floor(23.3));
+console.log(Math.floor(23.9));
+// both log 23
+
+// all of these methods do type-conversion:
+console.log(Math.round('23.3'));
+// logs 23
+
+// both floor and trunc cut off the decimal when dealing with 
+// positive numbers. Different for negative nums
+console.log(Math.trunc(-23.3));
+// logs -23
+console.log(Math.floor(-23.3));
+// logs -24
 
 
 /*
