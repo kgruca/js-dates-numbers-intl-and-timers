@@ -95,7 +95,7 @@ const displayMovements = function(movements, sort = false) {
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} 
         ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -106,7 +106,7 @@ const displayMovements = function(movements, sort = false) {
 
 const calcDisplayBalance = function(account) {
   account.balance = account.movements.reduce((arr, mov) => arr + mov, 0);
-  labelBalance.textContent = `${account.balance}€`;
+  labelBalance.textContent = `${account.balance.toFixed(2)}€`;
 };
 
 
@@ -114,19 +114,19 @@ const calcDisplaySummary = function(account) {
   const incomes = account.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = account.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + Math.abs(mov), 0);
-  labelSumOut.textContent = `${out}€`;
+  labelSumOut.textContent = `${out.toFixed(2)}€`;
 
   const interest = account.movements
     .filter(mov => mov > 0)
     .map(deposit => (deposit * account.interestRate) / 100)
     .filter(interest => interest > 1)
     .reduce((acc, interest) => acc + interest, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const updateUI = function (account) {
@@ -214,7 +214,9 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function(e) {
   e.preventDefault();
   
-  const amount = +inputLoanAmount.value;
+  // can change the code below to
+  // const amount = +inputLoanAmount.value;
+  const amount = Math.floor(inputLoanAmount.value);
   if(amount > 0 && currentAccount.movements.some(mov => mov >= 0.1 * amount)){
     // add movement
     currentAccount.movements.push(amount);
@@ -322,6 +324,19 @@ console.log(Math.trunc(-23.3));
 // logs -23
 console.log(Math.floor(-23.3));
 // logs -24
+
+// rounding decimals
+console.log((2.7).toFixed(0));
+// logs 3
+console.log((2.7).toFixed(3));
+// logs 2.700
+console.log((2.346).toFixed(2));
+// logs 2.35
+
+// toFixed() returns a string, so to convert the above results, simply add +
+console.log(+(2.7).toFixed(0));
+// logs 3 (in purple - white color means string, purple means num)
+
 
 
 /*
