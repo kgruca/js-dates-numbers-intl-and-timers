@@ -265,6 +265,26 @@ btnSort.addEventListener('click', function(e) {
 
 
 // NEW SECTION
+
+// sqrt()
+console.log(Math.sqrt(25));
+// logs 5
+console.log(25 ** (1 / 2));
+// also logs 5
+
+// max()
+console.log(Math.max(1, 4, 67, 34));
+// logs 67
+// works on strings too
+console.log(Math.max(1, 4, '67', 34));
+// logs 67 still
+// but if try:
+console.log(Math.max(1, 4, '67px', 34));
+// logs NaN
+
+
+/*
+// NEW SECTION
 // all numbers are represented as floating point numbers in JS
 // (no matter if they were written as integers)
 
@@ -356,3 +376,4 @@ console.log(Number.isInteger(23.0));
 // logs true
 console.log(Number.isInteger(23 / 0));
 // logs false
+*/
