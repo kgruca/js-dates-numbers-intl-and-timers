@@ -282,6 +282,20 @@ console.log(Math.max(1, 4, '67', 34));
 console.log(Math.max(1, 4, '67px', 34));
 // logs NaN
 
+// min()
+console.log(Math.min(1, 4, '67', 34));
+// logs 1
+
+// Math.PI
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// logs 314.1592653589793
+
+// better way to generate random numbers:
+const randomInt = (min, max) => 
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(10, 20));
+
 
 /*
 // NEW SECTION
