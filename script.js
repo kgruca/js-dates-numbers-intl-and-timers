@@ -267,6 +267,86 @@ btnSort.addEventListener('click', function(e) {
 
 
 // NEW SECTION
+//BigInt
+
+// a special kind of Int that was introduced in 2020
+
+// biggest number that JS can safely represent:
+console.log(2 ** 53 - 1);
+// logs 9007199254740991
+// this num is so important that it's saved into the Number namespace:
+console.log(Number.MAX_SAFE_INTEGER);
+// logs 9007199254740991
+
+// with numbers larger than these, can lose precision. For example:
+console.log(2 ** 53);
+// logs 9007199254740992
+console.log(2 ** 53 + 1);
+// also logs 9007199254740992
+
+// the way around this is to use BigInt:
+console.log(234923749749857203434083218401);
+// logs 2.3492374974985722e+29
+// not be as precise
+// but using the BigInt notation:
+console.log(234923749749857203434083218401n);
+// logs 234923749749857203434083218401n
+
+// can also use the BigInt() function:
+console.log(BigInt(234923749749857203434083218401));
+// logs 234923749749857218861849378816n
+// not as accurate as adding "n" - should probably be used with smaller numbers
+// looks like JS still needs to do some conversion when using BigInt()
+
+// operators
+
+console.log(10000n + 10000n);
+// logs 20000n
+console.log(495873457983459835873459849385n * 10000000000n);
+// logs 4958734579834598358734598493850000000000n
+
+// but cannot mix BigInt with regular numbers
+const huge = 98709874984375891475897459847598n;
+const regular = 3456;
+// console.log(huge * regular);
+// Uncaught TypeError: Cannot mix BigInt and other types, 
+// use explicit conversions
+
+// some exceptions: when using the comparison operator, and when using "+"
+// with strings
+console.log(8987987938749372498n > 15);
+// logs true
+
+// but
+console.log(20n === 20);
+// logs false
+// happens because JS doesn't do type coersion when using ===
+console.log(typeof 20n);
+// logs bigint
+
+// but should work with ==
+console.log(20n == 20);
+// logs true
+
+console.log(huge + ' is really big!!!');
+// logs 98709874984375891475897459847598 is really big!!!
+
+// cannot use the Math functions
+// console.log(Math.sqrt(16n));
+// Uncaught TypeError: Cannot convert a BigInt value to a number
+// at Math.sqrt
+
+// Divisions
+console.log(10n / 3n);
+// logs 3n
+console.log(10 / 3);
+// logs 3.3333333333333335
+
+
+
+
+/*
+// NEW SECTION
 // numeric separators
 const diameterSolarSystem = 287_460_000_000;
 console.log(diameterSolarSystem);
@@ -299,7 +379,6 @@ console.log(parseFloat('230_000'));
 // logs 230
 
 
-/*
 // NEW SECTION
 // REMAINDER operator - MODULO
 console.log(5 % 2);
