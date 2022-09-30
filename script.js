@@ -329,6 +329,10 @@ console.log(future.getTime());
 console.log(new Date(2142285785000));
 // logs Thu Nov 19 2037 15:23:05 GMT-0800 (Pacific Standard Time)
 
+future.setFullYear(2040);
+console.log(future);
+// logs Mon Nov 19 2040 15:23:05 GMT-0800 (Pacific Standard Time)
+// so the set methods change an aspect of the original date variable
 
 
 /*
