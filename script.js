@@ -266,6 +266,39 @@ btnSort.addEventListener('click', function(e) {
 // LECTURES
 
 
+// NEW SECTION
+// numeric separators
+const diameterSolarSystem = 287_460_000_000;
+console.log(diameterSolarSystem);
+// logs 287460000000
+
+const price = 345_99;
+console.log(price);
+// logs 34599
+
+// numeric separators just make it easy for us to read, without
+// causing problems for JS
+
+// can't use in certain ways
+// such as when converting to a number
+console.log(+'23_000');
+// logs NaN
+
+// const PI = _3.14;
+// causes syntax error
+ 
+// console.log(45__0000);
+// logs Uncaught SyntaxError: Only one underscore is allowed 
+// as numeric separator
+
+// don't do this with data received from APIs - JS will not be able to 
+// parse this correctly
+
+// be careful with situations such as the following - this can introduce bugs:
+console.log(parseFloat('230_000'));
+// logs 230
+
+
 /*
 // NEW SECTION
 // REMAINDER operator - MODULO
