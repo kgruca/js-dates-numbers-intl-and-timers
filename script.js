@@ -266,6 +266,23 @@ btnSort.addEventListener('click', function(e) {
 // LECTURES
 
 
+/*
+// NEW SECTION
+// REMAINDER operator - MODULO
+console.log(5 % 2);
+// logs 1
+
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].
+  forEach(function(row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+  });
+});
+
+// let's say we want to call every second row from the movements list
+;
+
+
 // NEW SECTION
 
 // sqrt()
@@ -338,8 +355,6 @@ console.log(+(2.7).toFixed(0));
 // logs 3 (in purple - white color means string, purple means num)
 
 
-
-/*
 // NEW SECTION
 // all numbers are represented as floating point numbers in JS
 // (no matter if they were written as integers)
