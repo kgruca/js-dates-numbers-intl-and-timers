@@ -281,6 +281,18 @@ console.log(new Date('Fri Sep 30 2022 15:21:49'));
 console.log(new Date('December 24, 2007'));
 // logs Mon Dec 24 2007 00:00:00 GMT-0800 (Pacific Standard Time)
 
+// can create a date this way:
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+// logs Thu Nov 19 2037 15:23:05 GMT-0800 (Pacific Standard Time)
+// this also shows that the month is zero-based
+
+// JS will also correct mistakes:
+console.log(new Date(2037, 10, 33));
+// which would correspond to November 33rd, 2037...
+// BUT logs Thu Dec 03 2037 00:00:00 GMT-0800 (Pacific Standard Time)
+// since November has only 30 days
+
+
 
 /*
 // NEW SECTION
