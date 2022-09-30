@@ -267,6 +267,23 @@ btnSort.addEventListener('click', function(e) {
 
 
 // NEW SECTION
+// create a date
+const now = new Date();
+console.log(now);
+// logs Fri Sep 30 2022 15:21:49 GMT-0700 (Pacific Daylight Time)
+// ^as of the time of execution
+
+// can do something like
+console.log(new Date('Fri Sep 30 2022 15:21:49'));
+// logs Fri Sep 30 2022 15:21:49 GMT-0700 (Pacific Daylight Time)
+
+// can also put in less data and JS will provide more:
+console.log(new Date('December 24, 2007'));
+// logs Mon Dec 24 2007 00:00:00 GMT-0800 (Pacific Standard Time)
+
+
+/*
+// NEW SECTION
 //BigInt
 
 // a special kind of Int that was introduced in 2020
@@ -343,9 +360,6 @@ console.log(10 / 3);
 // logs 3.3333333333333335
 
 
-
-
-/*
 // NEW SECTION
 // numeric separators
 const diameterSolarSystem = 287_460_000_000;
