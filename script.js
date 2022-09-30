@@ -292,6 +292,43 @@ console.log(new Date(2037, 10, 33));
 // BUT logs Thu Dec 03 2037 00:00:00 GMT-0800 (Pacific Standard Time)
 // since November has only 30 days
 
+// passing the value of 0 will give the time of the creation of Unix time
+// which is a useful tool for certain operations
+console.log(new Date(0));
+// logs Wed Dec 31 1969 16:00:00 GMT-0800 (Pacific Standard Time)
+// so following the logic of this, you can calculate the date provided in 
+// time from the start of this date, such as 3 days after this:
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+// days * hours/day * minutes/hr * seconds/min * ms/second
+// logs Sat Jan 03 1970 16:00:00 GMT-0800 (Pacific Standard Time)
+
+// working with dates
+const future = new Date(2037, 10, 19, 15, 23, 5);
+// some methods::
+console.log(future.getFullYear());
+// logs 2037
+// never use getYear(), but getFullYear()
+console.log(future.getMonth());
+// logs 10 - remember that this is 0-based, so 10 == November
+console.log(future.getDate());
+// returns day, logs 19
+console.log(future.getDay());
+// returns day of the week, logs 4 
+// which is Thursday
+console.log(future.getMinutes());
+// logs 23
+console.log(future.getSeconds());
+// logs 5
+console.log(future.toISOString());
+// logs 2037-11-19T23:23:05.000Z
+console.log(future.getTime());
+// logs the time (in ms) since Wed Dec 31 1969 16:00:00 GMT-0800 
+// (Pacific Standard Time)
+// so, logs 2142285785000 
+// can also use this amount of time to find the date since the date(0):
+console.log(new Date(2142285785000));
+// logs Thu Nov 19 2037 15:23:05 GMT-0800 (Pacific Standard Time)
+
 
 
 /*
