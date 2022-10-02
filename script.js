@@ -81,11 +81,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const displayMovements = function(movements, sort = false) {
+const displayMovements = function(account, sort = false) {
 
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort ? acc.movements.slice().sort((a, b) => a - b) : account.movements;
 
   movs.forEach(function(mov, i) {
 
@@ -131,7 +131,7 @@ const calcDisplaySummary = function(account) {
 
 const updateUI = function (account) {
   // Display movements
-  displayMovements(account.movements);
+  displayMovements(account);
 
   // Display balance
   calcDisplayBalance(account);
@@ -160,6 +160,24 @@ createUsernames(accounts);
 // Event handlers for login
 
 let currentAccount;
+
+// FAKE ALWAYS LOGGED IN
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+
+const now = new Date();
+
+// day/month/year
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hour = now.getHours();
+const minute = now.getMinutes();
+
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minute}`;
+
+
 
 btnLogin.addEventListener('click', function (e) {
   // prevent form from submitting 
@@ -266,6 +284,7 @@ btnSort.addEventListener('click', function(e) {
 // LECTURES
 
 
+/*
 // NEW SECTION
 // create a date
 const now = new Date();
@@ -335,7 +354,6 @@ console.log(future);
 // so the set methods change an aspect of the original date variable
 
 
-/*
 // NEW SECTION
 //BigInt
 
