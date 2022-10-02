@@ -91,10 +91,17 @@ const displayMovements = function(account, sort = false) {
 
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
+    const date = new Date(account.movementsDates[i]);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const year = date.getFullYear();
+    const displayDate = `${day}/${month}/${year}`;
+
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} 
         ${type}</div>
+        <div class="movements__date">${displayDate}</div>
         <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
@@ -166,18 +173,6 @@ currentAccount = account1;
 updateUI(currentAccount);
 containerApp.style.opacity = 100;
 
-const now = new Date();
-
-// day/month/year
-const day = `${now.getDate()}`.padStart(2, 0);
-const month = `${now.getMonth() + 1}`.padStart(2, 0);
-const year = now.getFullYear();
-const hour = now.getHours();
-const minute = now.getMinutes();
-
-labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minute}`;
-
-
 
 btnLogin.addEventListener('click', function (e) {
   // prevent form from submitting 
@@ -190,6 +185,15 @@ btnLogin.addEventListener('click', function (e) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`; 
     containerApp.style.opacity = 100;
+
+    // create current date and time
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minute}`;
 
     // clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -218,10 +222,14 @@ btnTransfer.addEventListener('click', function (e) {
       // doing the transfer
       currentAccount.movements.push(-amount);
       receiverAccount.movements.push(amount);
-  }
+    
+      // add transer date
+      currentAccount.movementsDates.push(new Date());
+      receiverAccount.movementsDates.push(new Date());
 
-  // update the user's UI
-  updateUI(currentAccount);
+      // update the user's UI
+      updateUI(currentAccount);
+    }
 
 });
 
@@ -238,6 +246,9 @@ btnLoan.addEventListener('click', function(e) {
   if(amount > 0 && currentAccount.movements.some(mov => mov >= 0.1 * amount)){
     // add movement
     currentAccount.movements.push(amount);
+
+    // loan date
+    currentAccount.movementsDates.push(new Date());
 
     // Update UI
     updateUI(currentAccount);
