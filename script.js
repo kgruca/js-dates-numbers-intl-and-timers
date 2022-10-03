@@ -295,6 +295,23 @@ btnSort.addEventListener('click', function(e) {
 // LECTURES
 
 
+// NEW SECTION
+// operations with dates
+
+// can subtract two dates from each other, to find the amount of time between 
+// the two dates
+
+// function to accept two dates and calc the time betweent the two dates
+const calcDaysPassed = (date1, date2) => (date2 - date1) / 
+  (1000* 60 * 60 * 24);
+
+console.log(calcDaysPassed(new Date(2037, 3, 14), new Date(2039, 7, 21))); 
+// logs 859 (in days)
+
+
+
+
+
 /*
 // NEW SECTION
 // create a date
